@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name: WPGraphQL Fluent Forms
- * Plugin URI: https://github.com/AxeWP/wp-graphql-plugin-boilerplate
- * GitHub Plugin URI: https://github.com/AxeWP/wp-graphql-plugin-boilerplate
- * Description: A boilerplate for creating WPGraphQL extensions
- * Author: AxePress
- * Author URI: https://github.com/AxeWP
- * Update URI: https://github.com/AxeWP/wp-graphql-boilerplate
+ * Plugin URI: https://github.com/FullStackIndustries/wp-graphql-fluent-forms
+ * GitHub Plugin URI: https://github.com/FullStackIndustries/wp-graphql-fluent-forms
+ * Description: Adds Fluent Forms Functionality to WPGraphQL schema.
+ * Author: Full Stack Industries
+ * Author URI: https://www.fullstackindustries.com/
+ * Update URI: https://github.com/FullStackIndustries/wp-graphql-fluent-forms
  * Version: 0.0.1
  * Text Domain: wp-graphql-fluent-forms
  * Domain Path: /languages
@@ -15,11 +15,12 @@
  * Requires PHP: 7.4+
  * Requires Plugins: wp-graphql
  * WPGraphQL requires at least: 1.8.0
+ * Fluent Forms requires at least: 5.1.18
  * License: GPL-3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  *
  * @package WPGraphQL\FluentForms
- * @author axepress
+ * @author FullStackIndustries
  * @license GPL-3
  * @version 0.0.1
  */
