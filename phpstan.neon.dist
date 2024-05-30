@@ -1,0 +1,41 @@
+parameters:
+		level: 8
+		checkAlwaysTrueCheckTypeFunctionCall: true
+		checkAlwaysTrueInstanceof: true
+		checkAlwaysTrueStrictComparison: true
+		checkExplicitMixedMissingReturn: true
+		checkFunctionNameCase: true
+		checkInternalClassCaseSensitivity: true
+		checkMissingIterableValueType: true
+		checkTooWideReturnTypesInProtectedAndPublicMethods: true
+		inferPrivatePropertyTypeFromConstructor: true
+		polluteScopeWithAlwaysIterableForeach: false
+		polluteScopeWithLoopInitialAssignments: false
+		reportAlwaysTrueInLastCondition: true
+		reportStaticMethodSignatures: true
+		reportWrongPhpDocTypeInVarTag: true
+		treatPhpDocTypesAsCertain: false
+		featureToggles:
+			disableRuntimeReflectionProvider: true
+		stubFiles:
+			# Simulate added properties
+			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-post-type.stub
+			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-taxonomy.stub
+			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/Model.stub
+		bootstrapFiles:
+			- phpstan/constants.php
+			- wp-graphql-plugin-name.php
+			- access-functions.php
+			- activation.php
+			- deactivation.php
+		paths:
+			- wp-graphql-plugin-name.php
+			- access-functions.php
+			- activation.php
+			- deactivation.php
+			- src/
+		scanFiles:
+			- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
+		scanDirectories:
+			- src/
+			- vendor-prefixed/axepress/wp-graphql-plugin-boilerplate/src/
