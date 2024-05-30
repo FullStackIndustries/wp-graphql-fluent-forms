@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Registers Plugin types to the GraphQL schema.
  *
@@ -9,11 +10,13 @@ namespace WPGraphQL\FluentForms;
 
 use Exception;
 use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
+use WPGraphQL\FluentForms\Type\WPObject;
 
 /**
  * Class - TypeRegistry
  */
-class TypeRegistry {
+class TypeRegistry
+{
 	/**
 	 * The local registry of registered types.
 	 *
@@ -26,8 +29,9 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	public static function get_registered_types(): array {
-		if ( empty( self::$registry ) ) {
+	public static function get_registered_types(): array
+	{
+		if (empty(self::$registry)) {
 			self::initialize_registry();
 		}
 
@@ -37,24 +41,26 @@ class TypeRegistry {
 	/**
 	 * Registers types, connections, unions, and mutations to GraphQL schema.
 	 */
-	public static function init(): void {
+	public static function init(): void
+	{
 		/**
 		 * Fires before all types have been registered.
 		 */
-		do_action( 'graphql_ff_before_register_types' );
+		do_action('graphql_ff_before_register_types');
 
 		self::initialize_registry();
 
 		/**
 		 * Fires after all types have been registered.
 		 */
-		do_action( 'graphql_ff_after_register_types' );
+		do_action('graphql_ff_after_register_types');
 	}
 
 	/**
 	 * Initializes the plugin type registry.
 	 */
-	private static function initialize_registry(): void {
+	private static function initialize_registry(): void
+	{
 		$classes_to_register = array_merge(
 			self::enums(),
 			self::inputs(),
@@ -65,7 +71,7 @@ class TypeRegistry {
 			self::fields(),
 		);
 
-		self::register_types( $classes_to_register );
+		self::register_types($classes_to_register);
 	}
 
 	/**
@@ -73,7 +79,8 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	private static function enums(): array {
+	private static function enums(): array
+	{
 		// Enums to register.
 		$classes_to_register = [];
 
@@ -84,7 +91,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_ff_registered_enum_classes', $classes_to_register );
+		return apply_filters('graphql_ff_registered_enum_classes', $classes_to_register);
 	}
 
 	/**
@@ -92,7 +99,8 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	private static function inputs(): array {
+	private static function inputs(): array
+	{
 		$classes_to_register = [];
 
 		/**
@@ -102,7 +110,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_ff_registered_input_classes', $classes_to_register );
+		return apply_filters('graphql_ff_registered_input_classes', $classes_to_register);
 	}
 
 	/**
@@ -110,7 +118,8 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	public static function interfaces(): array {
+	public static function interfaces(): array
+	{
 		$classes_to_register = [];
 
 		/**
@@ -120,7 +129,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_ff_registered_interface_classes', $classes_to_register );
+		return apply_filters('graphql_ff_registered_interface_classes', $classes_to_register);
 	}
 
 	/**
@@ -128,8 +137,13 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	public static function objects(): array {
-		$classes_to_register = [];
+	public static function objects(): array
+	{
+		$classes_to_register = [
+			// Forms.
+			WPObject\Form::class,
+			WPObject\FormField::class,
+		];
 
 		/**
 		 * Filters the list of object classes to register.
@@ -138,7 +152,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_ff_registered_object_classes', $classes_to_register );
+		return apply_filters('graphql_ff_registered_object_classes', $classes_to_register);
 	}
 
 	/**
@@ -146,8 +160,11 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	public static function fields(): array {
-		$classes_to_register = [];
+	public static function fields(): array
+	{
+		$classes_to_register = [
+			Fields\RootQuery::class,
+		];
 
 		/**
 		 * Filters the list of field classes to register.
@@ -156,7 +173,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_ff_registered_field_classes', $classes_to_register );
+		return apply_filters('graphql_ff_registered_field_classes', $classes_to_register);
 	}
 
 	/**
@@ -164,7 +181,8 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	public static function connections(): array {
+	public static function connections(): array
+	{
 		$classes_to_register = [];
 
 		/**
@@ -174,7 +192,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_ff_registered_connection_classes', $classes_to_register );
+		return apply_filters('graphql_ff_registered_connection_classes', $classes_to_register);
 	}
 
 	/**
@@ -182,7 +200,8 @@ class TypeRegistry {
 	 *
 	 * @return string[]
 	 */
-	public static function mutations(): array {
+	public static function mutations(): array
+	{
 		$classes_to_register = [];
 
 		/**
@@ -192,7 +211,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		$classes_to_register = apply_filters( 'graphql_ff_registered_mutation_classes', $classes_to_register );
+		$classes_to_register = apply_filters('graphql_ff_registered_mutation_classes', $classes_to_register);
 
 		return $classes_to_register;
 	}
@@ -206,16 +225,17 @@ class TypeRegistry {
 	 *
 	 * @throws \Exception .
 	 */
-	private static function register_types( array $classes_to_register ): void {
+	private static function register_types(array $classes_to_register): void
+	{
 		// Bail if there are no classes to register.
-		if ( empty( $classes_to_register ) ) {
+		if (empty($classes_to_register)) {
 			return;
 		}
 
-		foreach ( $classes_to_register as $class ) {
-			if ( ! is_a( $class, Registrable::class, true ) ) {
+		foreach ($classes_to_register as $class) {
+			if (!is_a($class, Registrable::class, true)) {
 				// translators: PHP class.
-				throw new Exception( sprintf( esc_html__( 'To be registered to the WPGraphQL Fluent Forms GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\Registrable', 'wp-graphql-fluent-forms' ), esc_html( $class ) ) );
+				throw new Exception(sprintf(esc_html__('To be registered to the WPGraphQL Fluent Forms GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\Registrable', 'wp-graphql-fluent-forms'), esc_html($class)));
 			}
 
 			// Register the type to the GraphQL schema.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Initializes a singleton instance of the plugin.
  *
@@ -10,12 +11,13 @@ namespace WPGraphQL\FluentForms;
 use WPGraphQL\FluentForms\Admin\Settings\Settings;
 use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Helper\Helper;
 
-if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
+if (!class_exists('WPGraphQL\FluentForms\Main')) :
 
 	/**
 	 * Class - Main
 	 */
-	final class Main {
+	final class Main
+	{
 		/**
 		 * Class instances.
 		 *
@@ -26,11 +28,12 @@ if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
 		/**
 		 * Constructor
 		 */
-		public static function instance(): self {
-			if ( ! isset( self::$instance ) || ! ( is_a( self::$instance, self::class ) ) ) {
+		public static function instance(): self
+		{
+			if (!isset(self::$instance) || !(is_a(self::$instance, self::class))) {
 				// You cant test a singleton.
 				// @codeCoverageIgnoreStart .
-				if ( ! function_exists( 'is_plugin_active' ) ) {
+				if (!function_exists('is_plugin_active')) {
 					require_once ABSPATH . 'wp-admin/includes/plugin.php';
 				}
 				self::$instance = new self();
@@ -44,7 +47,7 @@ if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
 			 *
 			 * @param self $instance the instance of the plugin class.
 			 */
-			do_action( 'graphql_ff_init', self::$instance );
+			do_action('graphql_ff_init', self::$instance);
 
 			return self::$instance;
 		}
@@ -54,8 +57,9 @@ if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		private function includes(): void {
-			if ( defined( 'WPGRAPHQL_FF_AUTOLOAD' ) && false !== WPGRAPHQL_FF_AUTOLOAD && defined( 'WPGRAPHQL_FF_PLUGIN_DIR' ) ) {
+		private function includes(): void
+		{
+			if (defined('WPGRAPHQL_FF_AUTOLOAD') && false !== WPGRAPHQL_FF_AUTOLOAD && defined('WPGRAPHQL_FF_PLUGIN_DIR')) {
 				require_once WPGRAPHQL_FF_PLUGIN_DIR . 'vendor/autoload.php';
 			}
 		}
@@ -65,16 +69,17 @@ if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		private function setup(): void {
+		private function setup(): void
+		{
 			// Setup boilerplate typename hook.
-			Helper::set_hook_prefix( 'graphql_ff' );
+			Helper::set_hook_prefix('graphql_ff');
 
 			// Setup plugin.
 			CoreSchemaFilters::init();
 			Settings::init();
 
 			// Initialize plugin type registry.
-			add_action( get_graphql_register_action(), [ TypeRegistry::class, 'init' ] );
+			add_action(get_graphql_register_action(), [TypeRegistry::class, 'init']);
 		}
 
 		/**
@@ -86,9 +91,10 @@ if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
 		 *
 		 * @return void
 		 */
-		public function __clone() {
+		public function __clone()
+		{
 			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'The plugin Main class should not be cloned.', 'wp-graphql-fluent-forms' ), '0.0.1' );
+			_doing_it_wrong(__FUNCTION__, esc_html__('The plugin Main class should not be cloned.', 'wp-graphql-fluent-forms'), '0.0.1');
 		}
 
 		/**
@@ -96,9 +102,10 @@ if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		public function __wakeup(): void {
+		public function __wakeup(): void
+		{
 			// De-serializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'De-serializing instances of the plugin Main class is not allowed.', 'wp-graphql-fluent-forms' ), '0.0.1' );
+			_doing_it_wrong(__FUNCTION__, esc_html__('De-serializing instances of the plugin Main class is not allowed.', 'wp-graphql-fluent-forms'), '0.0.1');
 		}
 	}
 endif;

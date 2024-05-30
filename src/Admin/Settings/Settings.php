@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Registers plugin settings to the backend.
  *
@@ -12,7 +13,8 @@ use WPGraphQL\Admin\Settings\SettingsRegistry;
 /**
  * Class - Settings
  */
-class Settings {
+class Settings
+{
 	/**
 	 * An instance of the Settings API.
 	 *
@@ -25,20 +27,22 @@ class Settings {
 	 *
 	 * @var string
 	 */
-	public static string $section_name = 'wpgraphql_ff_settings';
+	public static string $section_name = 'graphql_seo_settings';
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function init(): void {
-		add_action( 'init', [ self::class, 'register_settings' ] );
+	public static function init(): void
+	{
+		add_action('admin_init', [self::class, 'register_settings']);
 	}
 
 	/**
 	 * Gets an instance of the WPGraphQL settings api.
 	 */
-	public static function get_settings_api(): SettingsRegistry {
-		if ( ! isset( self::$settings_api ) ) {
+	public static function get_settings_api(): SettingsRegistry
+	{
+		if (!isset(self::$settings_api) || !self::$settings_api instanceof SettingsRegistry) {
 			self::$settings_api = new SettingsRegistry();
 		}
 
@@ -48,7 +52,8 @@ class Settings {
 	/**
 	 * Registers the settings to WPGraphQL
 	 */
-	public static function register_settings(): void {
+	public static function register_settings(): void
+	{
 		$settings_api = self::get_settings_api();
 
 		$settings_api->register_fields(
@@ -56,8 +61,8 @@ class Settings {
 			[
 				[
 					'name'    => 'delete_data_on_deactivate',
-					'label'   => __( 'Delete Data on Deactivation', 'wp-graphql-fluent-forms' ),
-					'desc'    => __( 'Delete settings and any other data stored by WPGraphQL Fluent Forms upon de-activation of the plugin. Un-checking this will keep data after the plugin is de-activated.', 'wp-graphql-fluent-forms' ),
+					'label'   => __('Delete Data on Deactivation', 'wp-graphql-fluent-forms'),
+					'desc'    => __('Delete settings and any other data stored by WPGraphQL Fluent Forms upon de-activation of the plugin. Un-checking this will keep data after the plugin is de-activated.', 'wp-graphql-fluent-forms'),
 					'type'    => 'checkbox',
 					'default' => 'on',
 				],
