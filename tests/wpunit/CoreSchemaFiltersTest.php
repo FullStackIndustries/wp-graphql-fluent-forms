@@ -1,6 +1,6 @@
 <?php
 
-use WPGraphQL\PluginName\CoreSchemaFilters;
+use WPGraphQL\FluentForms\CoreSchemaFilters;
 
 /**
  * Tests CoreSchemaFilters.
@@ -12,7 +12,7 @@ class CoreSchemaFiltersTest extends \Codeception\TestCase\WPTestCase {
 	 */
 	public function testGetTypePrefix() {
 		$actual = CoreSchemaFilters::get_type_prefix();
-		$this->assertEquals( 'PluginName', $actual );
+		$this->assertEquals( 'FluentForms', $actual );
 
 		$expected = 'somePrefix';
 		$actual   = CoreSchemaFilters::get_type_prefix( $expected );

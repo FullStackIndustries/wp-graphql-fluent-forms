@@ -48,7 +48,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 # Set project environmental variables
 ENV WP_ROOT_FOLDER="/var/www/html"
 ENV PLUGINS_DIR="${WP_ROOT_FOLDER}/wp-content/plugins"
-ENV PROJECT_DIR="${PLUGINS_DIR}/wp-graphql-plugin-name"
+ENV PROJECT_DIR="${PLUGINS_DIR}/wp-graphql-fluent-forms"
 ENV DATA_DUMP_DIR="${PROJECT_DIR}/tests/_data"
 
 # Remove exec statement from base entrypoint script.

@@ -3,7 +3,7 @@
 	<description>Sniffs for plugins created with WPGraphQL Plugin Boilerplate.</description>
 	<!-- What to scan -->
 	<file>./access-functions.php</file>
-	<file>./wp-graphql-plugin-name.php</file>
+	<file>./wp-graphql-fluent-forms.php</file>
 	<file>./activation.php</file>
 	<file>./deactivation.php</file>
 	<file>./src/</file>
@@ -43,13 +43,13 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
-			<property name="prefixes" type="array" value="wp_graphql, WPGraphQL\PluginName, graphql_pb, WPGRAPHQL_PB" />
+			<property name="prefixes" type="array" value="wp_graphql, WPGraphQL\FluentForms, graphql_ff, WPGRAPHQL_FF" />
 		</properties>
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<!-- Value: replace the text domain used. -->
-			<property name="text_domain" type="array" value="wp-graphql-plugin-name"/>
+			<property name="text_domain" type="array" value="wp-graphql-fluent-forms"/>
 		</properties>
 	</rule>
 </ruleset>

@@ -2,7 +2,7 @@
 /**
  * Deactivation Hook
  *
- * @package WPGraphql\PluginName
+ * @package WPGraphql\FluentForms
  */
 
 /**
@@ -10,24 +10,24 @@
  *
  * This cleans up data that WPGraphQL stores.
  */
-function graphql_pb_deactivation_callback(): callable {
+function graphql_ff_deactivation_callback(): callable {
 	return static function (): void {
 
 		// Fire an action when WPGraphQL is de-activating.
-		do_action( 'graphql_pb_deactivate' );
+		do_action( 'graphql_ff_deactivate' );
 
 		// Delete data during activation.
-		graphql_pb_delete_data();
+		graphql_ff_delete_data();
 	};
 }
 
 /**
  * Delete data on deactivation.
  */
-function graphql_pb_delete_data(): void {
+function graphql_ff_delete_data(): void {
 
 	// Check if the plugin is set to delete data or not.
-	$delete_data = graphql_pb_get_setting( 'delete_data_on_deactivate' );
+	$delete_data = graphql_ff_get_setting( 'delete_data_on_deactivate' );
 
 	// Bail if not set to delete.
 	if ( 'on' !== $delete_data ) {
@@ -35,10 +35,10 @@ function graphql_pb_delete_data(): void {
 	}
 
 	// Delete plugin version.
-	delete_option( 'wp_graphql_pb_version' );
+	delete_option( 'wp_graphql_ff_version' );
 
 	// Initialize the settings API.
-	$settings = new \WPGraphQL\PluginName\Admin\Settings\Settings();
+	$settings = new \WPGraphQL\FluentForms\Admin\Settings\Settings();
 	$settings::register_settings();
 
 	// Get all the registered settings fields.
@@ -51,5 +51,5 @@ function graphql_pb_delete_data(): void {
 		}
 	}
 
-	do_action( 'graphql_pb_delete_data' );
+	do_action( 'graphql_ff_delete_data' );
 }

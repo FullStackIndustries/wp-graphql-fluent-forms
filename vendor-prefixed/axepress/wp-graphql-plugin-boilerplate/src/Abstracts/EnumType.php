@@ -10,9 +10,9 @@
 
 declare( strict_types=1 );
 
-namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts;
+namespace WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Abstracts;
 
-if ( ! class_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts\EnumType' ) ) {
+if ( ! class_exists( '\WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Abstracts\EnumType' ) ) {
 
 	/**
 	 * Class - EnumType

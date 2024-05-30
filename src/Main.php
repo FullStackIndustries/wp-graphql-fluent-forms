@@ -2,15 +2,15 @@
 /**
  * Initializes a singleton instance of the plugin.
  *
- * @package WPGraphQL\PluginName
+ * @package WPGraphQL\FluentForms
  */
 
-namespace WPGraphQL\PluginName;
+namespace WPGraphQL\FluentForms;
 
-use WPGraphQL\PluginName\Admin\Settings\Settings;
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Helper;
+use WPGraphQL\FluentForms\Admin\Settings\Settings;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Helper\Helper;
 
-if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
+if ( ! class_exists( 'WPGraphQL\FluentForms\Main' ) ) :
 
 	/**
 	 * Class - Main
@@ -44,7 +44,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 			 *
 			 * @param self $instance the instance of the plugin class.
 			 */
-			do_action( 'graphql_pb_init', self::$instance );
+			do_action( 'graphql_ff_init', self::$instance );
 
 			return self::$instance;
 		}
@@ -55,8 +55,8 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 * @codeCoverageIgnore
 		 */
 		private function includes(): void {
-			if ( defined( 'WPGRAPHQL_PB_AUTOLOAD' ) && false !== WPGRAPHQL_PB_AUTOLOAD && defined( 'WPGRAPHQL_PB_PLUGIN_DIR' ) ) {
-				require_once WPGRAPHQL_PB_PLUGIN_DIR . 'vendor/autoload.php';
+			if ( defined( 'WPGRAPHQL_FF_AUTOLOAD' ) && false !== WPGRAPHQL_FF_AUTOLOAD && defined( 'WPGRAPHQL_FF_PLUGIN_DIR' ) ) {
+				require_once WPGRAPHQL_FF_PLUGIN_DIR . 'vendor/autoload.php';
 			}
 		}
 
@@ -67,7 +67,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 */
 		private function setup(): void {
 			// Setup boilerplate typename hook.
-			Helper::set_hook_prefix( 'graphql_pb' );
+			Helper::set_hook_prefix( 'graphql_ff' );
 
 			// Setup plugin.
 			CoreSchemaFilters::init();
@@ -88,7 +88,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 */
 		public function __clone() {
 			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'The plugin Main class should not be cloned.', 'wp-graphql-plugin-name' ), '0.0.1' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'The plugin Main class should not be cloned.', 'wp-graphql-fluent-forms' ), '0.0.1' );
 		}
 
 		/**
@@ -98,7 +98,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 */
 		public function __wakeup(): void {
 			// De-serializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'De-serializing instances of the plugin Main class is not allowed.', 'wp-graphql-plugin-name' ), '0.0.1' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'De-serializing instances of the plugin Main class is not allowed.', 'wp-graphql-fluent-forms' ), '0.0.1' );
 		}
 	}
 endif;

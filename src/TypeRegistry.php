@@ -2,13 +2,13 @@
 /**
  * Registers Plugin types to the GraphQL schema.
  *
- * @package WPGraphQL\PluginName
+ * @package WPGraphQL\FluentForms
  */
 
-namespace WPGraphQL\PluginName;
+namespace WPGraphQL\FluentForms;
 
 use Exception;
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
 
 /**
  * Class - TypeRegistry
@@ -41,14 +41,14 @@ class TypeRegistry {
 		/**
 		 * Fires before all types have been registered.
 		 */
-		do_action( 'graphql_pb_before_register_types' );
+		do_action( 'graphql_ff_before_register_types' );
 
 		self::initialize_registry();
 
 		/**
 		 * Fires after all types have been registered.
 		 */
-		do_action( 'graphql_pb_after_register_types' );
+		do_action( 'graphql_ff_after_register_types' );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_pb_registered_enum_classes', $classes_to_register );
+		return apply_filters( 'graphql_ff_registered_enum_classes', $classes_to_register );
 	}
 
 	/**
@@ -102,7 +102,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_pb_registered_input_classes', $classes_to_register );
+		return apply_filters( 'graphql_ff_registered_input_classes', $classes_to_register );
 	}
 
 	/**
@@ -120,7 +120,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_pb_registered_interface_classes', $classes_to_register );
+		return apply_filters( 'graphql_ff_registered_interface_classes', $classes_to_register );
 	}
 
 	/**
@@ -138,7 +138,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_pb_registered_object_classes', $classes_to_register );
+		return apply_filters( 'graphql_ff_registered_object_classes', $classes_to_register );
 	}
 
 	/**
@@ -156,7 +156,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_pb_registered_field_classes', $classes_to_register );
+		return apply_filters( 'graphql_ff_registered_field_classes', $classes_to_register );
 	}
 
 	/**
@@ -174,7 +174,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		return apply_filters( 'graphql_pb_registered_connection_classes', $classes_to_register );
+		return apply_filters( 'graphql_ff_registered_connection_classes', $classes_to_register );
 	}
 
 	/**
@@ -192,7 +192,7 @@ class TypeRegistry {
 		 *
 		 * @param array           $classes_to_register = Array of classes to be registered to the schema.
 		 */
-		$classes_to_register = apply_filters( 'graphql_pb_registered_mutation_classes', $classes_to_register );
+		$classes_to_register = apply_filters( 'graphql_ff_registered_mutation_classes', $classes_to_register );
 
 		return $classes_to_register;
 	}
@@ -215,7 +215,7 @@ class TypeRegistry {
 		foreach ( $classes_to_register as $class ) {
 			if ( ! is_a( $class, Registrable::class, true ) ) {
 				// translators: PHP class.
-				throw new Exception( sprintf( esc_html__( 'To be registered to the WPGraphQL Plugin Name GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\Registrable', 'wp-graphql-plugin-name' ), esc_html( $class ) ) );
+				throw new Exception( sprintf( esc_html__( 'To be registered to the WPGraphQL Fluent Forms GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\Registrable', 'wp-graphql-fluent-forms' ), esc_html( $class ) ) );
 			}
 
 			// Register the type to the GraphQL schema.

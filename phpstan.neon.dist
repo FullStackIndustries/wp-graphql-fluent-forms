@@ -24,12 +24,12 @@ parameters:
 			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/Model.stub
 		bootstrapFiles:
 			- phpstan/constants.php
-			- wp-graphql-plugin-name.php
+			- wp-graphql-fluent-forms.php
 			- access-functions.php
 			- activation.php
 			- deactivation.php
 		paths:
-			- wp-graphql-plugin-name.php
+			- wp-graphql-fluent-forms.php
 			- access-functions.php
 			- activation.php
 			- deactivation.php

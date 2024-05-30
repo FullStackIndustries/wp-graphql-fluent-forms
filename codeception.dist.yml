@@ -14,7 +14,7 @@ settings:
 coverage:
     enabled: true
     remote: false
-    c3_url: '%WP_URL%/wp-content/plugins/wp-graphql-plugin-name/wp-graphql-plugin-name.php'
+    c3_url: '%WP_URL%/wp-content/plugins/wp-graphql-fluent-forms/wp-graphql-fluent-forms.php'
     include:
         - src/*
         - access-functions.php
@@ -74,8 +74,8 @@ modules:
             title: 'Test'
             plugins:
                 - wp-graphql/wp-graphql.php
-                - wp-graphql-plugin-name/wp-graphql-plugin-name.php
+                - wp-graphql-fluent-forms/wp-graphql-fluent-forms.php
             activatePlugins:
                 - wp-graphql/wp-graphql.php
-                - wp-graphql-plugin-name/wp-graphql-plugin-name.php
+                - wp-graphql-fluent-forms/wp-graphql-fluent-forms.php
             configFile: 'tests/_data/config.php'

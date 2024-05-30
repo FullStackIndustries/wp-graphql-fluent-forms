@@ -10,13 +10,13 @@
 
 declare( strict_types=1 );
 
-namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Traits;
+namespace WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Traits;
 
 use Closure;
 use Error;
 use WPGraphQL;
 
-if ( ! trait_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Traits\TypeResolverTrait' ) ) {
+if ( ! trait_exists( '\WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Traits\TypeResolverTrait' ) ) {
 
 	/**
 	 * Trait - TypeResolverTrait

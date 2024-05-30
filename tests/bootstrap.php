@@ -2,5 +2,5 @@
 /**
  * This is global bootstrap for autoloading.
  *
- * @package Tests\WPGraphQL\PluginName
+ * @package Tests\WPGraphQL\FluentForms
  */

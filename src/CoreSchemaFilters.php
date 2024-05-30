@@ -2,12 +2,12 @@
 /**
  * Adds filters that modify core schema.
  *
- * @package WPGraphQL\PluginName
+ * @package WPGraphQL\FluentForms
  */
 
-namespace WPGraphQL\PluginName;
+namespace WPGraphQL\FluentForms;
 
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
 
 /**
  * Class - CoreSchemaFilters
@@ -17,7 +17,7 @@ class CoreSchemaFilters implements Registrable {
 	 * {@inheritDoc}
 	 */
 	public static function init(): void {
-		add_filter( 'graphql_pb_type_prefix', [ self::class, 'get_type_prefix' ] );
+		add_filter( 'graphql_ff_type_prefix', [ self::class, 'get_type_prefix' ] );
 	}
 
 	/**
@@ -26,6 +26,6 @@ class CoreSchemaFilters implements Registrable {
 	 * @param string $type_name the non-prefixed type name.
 	 */
 	public static function get_type_prefix( ?string $type_name = null ): string {
-		return ! empty( $type_name ) ? $type_name : 'PluginName';
+		return ! empty( $type_name ) ? $type_name : 'FluentForms';
 	}
 }

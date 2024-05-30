@@ -2,7 +2,7 @@
 
 # Activate wp-graphql
 wp plugin install wp-graphql --allow-root --activate
-wp plugin activate wp-graphql-plugin-name --allow-root
+wp plugin activate wp-graphql-fluent-forms --allow-root
 
 # Set pretty permalinks.
 wp rewrite structure '/%year%/%monthnum%/%postname%/' --allow-root

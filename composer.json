@@ -1,23 +1,12 @@
 {
-	"name": "wp-graphql-plugin-boilerplate/wp-graphql-plugin-name",
+	"name": "wp-graphql-plugin-boilerplate/wp-graphql-fluent-forms",
 	"description": "A WPGraphQL plugin created with wp-graphql-plugin-boilerplate.",
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
 	"authors": [],
-	"repositories": [
-		{
-			"type": "path",
-			"url": "../../wp-graphql-plugin-boilerplate",
-			"options": {
-				"versions": {
-					"axepress/wp-graphql-plugin-boilerplate": "dev-develop"
-				}
-			}
-		}
-	],
 	"require": {
 		"php": ">=7.4",
-		"axepress/wp-graphql-plugin-boilerplate": "dev-develop"
+		"axepress/wp-graphql-plugin-boilerplate": "dev-main"
 	},
 	"require-dev": {
 		"lucatume/wp-browser": "<3.5",
@@ -58,7 +47,7 @@
 			"access-functions.php"
 		],
 		"psr-4": {
-			"WPGraphQL\\PluginName\\": "src/"
+			"WPGraphQL\\FluentForms\\": "src/"
 		},
 		"classmap": [
 			"vendor-prefixed/"
@@ -66,7 +55,7 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Tests\\WPGraphQL\\PluginName\\": "tests/_support/"
+			"Tests\\WPGraphQL\\FluentForms\\": "tests/_support/"
 		}
 	},
 	"scripts": {
@@ -89,10 +78,10 @@
 			"php ./vendor/bin/phpcs -i"
 		],
 		"check-cs": [
-			"php ./vendor/bin/phpcs"
+			"php ./vendor/bin/phpcs src"
 		],
 		"fix-cs": [
-			"php ./vendor/bin/phpcbf"
+			"php ./vendor/bin/phpcbf src"
 		],
 		"phpstan": [
 			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
@@ -115,11 +104,11 @@
 	"extra": {
 		"strauss": {
 			"target_directory": "vendor-prefixed",
-			"namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
-			"classmap_prefix": "WPGraphQL_PluginName_",
-			"constant_prefix": "GRAPHQL_PB_",
+			"namespace_prefix": "WPGraphQL\\FluentForms\\Vendor\\",
+			"classmap_prefix": "WPGraphQL_FluentForms_",
+			"constant_prefix": "GRAPHQL_FF_",
 			"include_modified_date": false,
-			"delete_vendor_files": false,
+			"delete_vendor_files": true,
 			"packages": [
 				"axepress/wp-graphql-plugin-boilerplate"
 			],
@@ -129,7 +118,7 @@
 		}
 	},
 	"archive": {
-		"name": "wp-graphql-plugin-name",
+		"name": "wp-graphql-fluent-forms",
 		"exclude": [
 			"/.*",
 			"!.wordpress-org",

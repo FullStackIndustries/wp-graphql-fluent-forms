@@ -10,9 +10,9 @@
 
 declare( strict_types=1 );
 
-namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces;
+namespace WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces;
 
-if ( ! interface_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\TypeWithConnections' ) ) {
+if ( ! interface_exists( '\WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces\TypeWithConnections' ) ) {
 
 	/**
 	 * Interface - TypeWithConnections

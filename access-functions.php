@@ -2,7 +2,7 @@
 /**
  * This file contains access functions for various class methods.
  *
- * @package WPGraphQL/PluginName
+ * @package WPGraphQL/FluentForms
  */
 
 /**
@@ -14,7 +14,7 @@
  *
  * @return mixed
  */
-function graphql_pb_get_setting( string $option_name, $default_value = '', $section_name = 'graphql_pb_settings' ) {
+function graphql_ff_get_setting( string $option_name, $default_value = '', $section_name = 'graphql_ff_settings' ) {
 	$section_fields = get_option( $section_name );
 
 	/**
@@ -24,7 +24,7 @@ function graphql_pb_get_setting( string $option_name, $default_value = '', $sect
 	 * @param string $section_name   The name of the section
 	 * @param mixed  $default        The default value for the option being retrieved
 	 */
-	$section_fields = apply_filters( 'graphql_pb_get_setting_section_fields', $section_fields, $section_name, $default_value );
+	$section_fields = apply_filters( 'graphql_ff_get_setting_section_fields', $section_fields, $section_name, $default_value );
 
 	/**
 	 * Get the value from the stored data, or return the default
@@ -40,5 +40,5 @@ function graphql_pb_get_setting( string $option_name, $default_value = '', $sect
 	 * @param array  $section_fields The setting values within the section
 	 * @param string $section_name   The name of the section the setting belongs to
 	 */
-	return apply_filters( 'graphql_pb_get_setting_section_field_value', $value, $default_value, $option_name, $section_fields, $section_name );
+	return apply_filters( 'graphql_ff_get_setting_section_field_value', $value, $default_value, $option_name, $section_fields, $section_name );
 }

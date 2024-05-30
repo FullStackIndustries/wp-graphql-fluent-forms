@@ -5,7 +5,7 @@
 ARG WP_VERSION
 ARG PHP_VERSION
 
-FROM wp-graphql-plugin-name:latest-wp${WP_VERSION}-php${PHP_VERSION}
+FROM wp-graphql-fluent-forms:latest-wp${WP_VERSION}-php${PHP_VERSION}
 
 LABEL author=axepress
 LABEL author_uri=https://github.com/AxeWP

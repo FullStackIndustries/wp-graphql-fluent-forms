@@ -2,10 +2,10 @@
 /**
  * Registers plugin settings to the backend.
  *
- * @package WPGraphQL\PluginName\Admin\Settings
+ * @package WPGraphQL\FluentForms\Admin\Settings
  */
 
-namespace WPGraphQL\PluginName\Admin\Settings;
+namespace WPGraphQL\FluentForms\Admin\Settings;
 
 use WPGraphQL\Admin\Settings\SettingsRegistry;
 
@@ -25,7 +25,7 @@ class Settings {
 	 *
 	 * @var string
 	 */
-	public static string $section_name = 'wpgraphql_pb_settings';
+	public static string $section_name = 'wpgraphql_ff_settings';
 
 	/**
 	 * {@inheritDoc}
@@ -56,8 +56,8 @@ class Settings {
 			[
 				[
 					'name'    => 'delete_data_on_deactivate',
-					'label'   => __( 'Delete Data on Deactivation', 'wp-graphql-plugin-name' ),
-					'desc'    => __( 'Delete settings and any other data stored by WPGraphQL Plugin Name upon de-activation of the plugin. Un-checking this will keep data after the plugin is de-activated.', 'wp-graphql-plugin-name' ),
+					'label'   => __( 'Delete Data on Deactivation', 'wp-graphql-fluent-forms' ),
+					'desc'    => __( 'Delete settings and any other data stored by WPGraphQL Fluent Forms upon de-activation of the plugin. Un-checking this will keep data after the plugin is de-activated.', 'wp-graphql-fluent-forms' ),
 					'type'    => 'checkbox',
 					'default' => 'on',
 				],

@@ -1,6 +1,6 @@
 <?php
 
-use WPGraphQL\PluginName\TypeRegistry;
+use WPGraphQL\FluentForms\TypeRegistry;
 
 /**
  * Tests TypeRegistry.

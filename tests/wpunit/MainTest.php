@@ -1,6 +1,6 @@
 <?php
 
-use WPGraphQL\PluginName\Main;
+use WPGraphQL\FluentForms\Main;
 
 /**
  * Tests Main.
@@ -32,7 +32,7 @@ class MainTest extends \Codeception\TestCase\WPTestCase {
 		$this->instance = new Main();
 		$this->assertTrue( $this->instance instanceof Main );
 
-		$actual = graphql_pb_init();
+		$actual = graphql_ff_init();
 		$this->assertEquals( $this->instance, $actual );
 	}
 
@@ -45,8 +45,8 @@ class MainTest extends \Codeception\TestCase\WPTestCase {
 	}
 
 	/**
-	 * @covers \WPGraphQL\PluginName\Main::__wakeup
-	 * @covers \WPGraphQL\PluginName\Main::__clone
+	 * @covers \WPGraphQL\FluentForms\Main::__wakeup
+	 * @covers \WPGraphQL\FluentForms\Main::__clone
 	 */
 	public function testClone() {
 		$actual = Main::instance();
@@ -57,10 +57,10 @@ class MainTest extends \Codeception\TestCase\WPTestCase {
 
 	public function testConstants() {
 		do_action( 'init' );
-		$this->assertTrue( defined( 'WPGRAPHQL_PB_VERSION' ) );
-		$this->assertTrue( defined( 'WPGRAPHQL_PB_PLUGIN_DIR' ) );
-		$this->assertTrue( defined( 'WPGRAPHQL_PB_PLUGIN_URL' ) );
-		$this->assertTrue( defined( 'WPGRAPHQL_PB_PLUGIN_FILE' ) );
+		$this->assertTrue( defined( 'WPGRAPHQL_FF_VERSION' ) );
+		$this->assertTrue( defined( 'WPGRAPHQL_FF_PLUGIN_DIR' ) );
+		$this->assertTrue( defined( 'WPGRAPHQL_FF_PLUGIN_URL' ) );
+		$this->assertTrue( defined( 'WPGRAPHQL_FF_PLUGIN_FILE' ) );
 	}
 
 }

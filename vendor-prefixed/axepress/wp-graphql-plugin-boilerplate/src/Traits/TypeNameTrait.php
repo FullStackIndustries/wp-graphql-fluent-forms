@@ -10,12 +10,12 @@
 
 declare( strict_types=1 );
 
-namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Traits;
+namespace WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Traits;
 
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Helper;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Helper\Helper;
 use Exception;
 
-if ( ! trait_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Traits\TypeNameTrait' ) ) {
+if ( ! trait_exists( '\WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Traits\TypeNameTrait' ) ) {
 
 	/**
 	 * Trait - TypeNameTrait

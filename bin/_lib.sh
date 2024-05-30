@@ -90,7 +90,7 @@ configure_wordpress() {
 
 	echo "Setting up WordPress..."
 	wp config create --dbname="$DB_NAME" --dbuser="$DB_USER" --dbpass="$DB_PASS" --dbhost="$DB_HOST" --skip-check --force=true
-	wp core install --url=$WP_DOMAIN --title=PluginNameTests --admin_user=$ADMIN_USERNAME --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
+	wp core install --url=$WP_DOMAIN --title=FluentFormsTests --admin_user=$ADMIN_USERNAME --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 	wp rewrite structure '/%year%/%monthnum%/%postname%/'
 }
 
@@ -106,13 +106,13 @@ install_plugins() {
 
 setup_plugin() {
 	if [ "${SKIP_WP_SETUP}" = "true" ]; then
-		echo "Skipping wp-graphql-plugin-name installation..."
+		echo "Skipping wp-graphql-fluent-forms installation..."
 		return 0
 	fi
 
 	# Add this repo as a plugin to the repo
-	if [ ! -d $WP_CORE_DIR/wp-content/plugins/wp-graphql-plugin-name ]; then
-		ln -s $PLUGIN_DIR $WP_CORE_DIR/wp-content/plugins/wp-graphql-plugin-name
+	if [ ! -d $WP_CORE_DIR/wp-content/plugins/wp-graphql-fluent-forms ]; then
+		ln -s $PLUGIN_DIR $WP_CORE_DIR/wp-content/plugins/wp-graphql-fluent-forms
 		cd $WP_CORE_DIR/wp-content/plugins
 		pwd
 	fi
@@ -127,7 +127,7 @@ post_setup() {
 	ls
 	
 	# activate the plugin
-	wp plugin activate wp-graphql-plugin-name --allow-root
+	wp plugin activate wp-graphql-fluent-forms --allow-root
 
 	# Flush the permalinks
 	wp rewrite flush --allow-root

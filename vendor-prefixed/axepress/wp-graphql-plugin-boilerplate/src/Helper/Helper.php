@@ -10,9 +10,9 @@
 
 declare( strict_types=1 );
 
-namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper;
+namespace WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Helper;
 
-if ( ! class_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Helper' ) ) {
+if ( ! class_exists( '\WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Helper\Helper' ) ) {
 
 	/**
 	 * Class - Helper

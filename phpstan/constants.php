@@ -2,8 +2,8 @@
 /**
  * Constants defined in this file are to help phpstan analyze code where constants outside the plugin (WordPress core constants, etc) are being used.
  *
- * @package WPGraphQL/PluginName
+ * @package WPGraphQL/FluentForms
  */
 
-define( 'WPGRAPHQL_PB_PLUGIN_FILE', 'wp-graphql-plugin-name.php' );
-define( 'WPGRAPHQL_PB_VERSION', '0.0.1' );
+define( 'WPGRAPHQL_FF_PLUGIN_FILE', 'wp-graphql-fluent-forms.php' );
+define( 'WPGRAPHQL_FF_VERSION', '0.0.1' );

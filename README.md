@@ -1,6 +1,6 @@
-![WPGraphQL Plugin Name logo](./.wordpress-org/banner-1544x500.png)
+![WPGraphQL Fluent Forms logo](./.wordpress-org/banner-1544x500.png)
 
-# WPGraphQL Plugin Name
+# WPGraphQL Fluent Forms
 
 @todo Your description here
 

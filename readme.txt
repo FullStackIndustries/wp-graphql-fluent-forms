@@ -1,4 +1,4 @@
-=== WPGraphQL Plugin Name ===
+=== WPGraphQL Fluent Forms ===
 Contributors: axepress, justlevine
 Tags: GraphQL, Gatsby, Headless, WPGraphQL, React, Rest
 Requires at least: 5.4.1

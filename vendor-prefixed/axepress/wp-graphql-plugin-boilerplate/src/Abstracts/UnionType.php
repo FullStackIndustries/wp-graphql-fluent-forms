@@ -10,11 +10,11 @@
 
 declare( strict_types=1 );
 
-namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts;
+namespace WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Abstracts;
 
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Traits\TypeResolverTrait;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Traits\TypeResolverTrait;
 
-if ( ! class_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts\UnionType' ) ) {
+if ( ! class_exists( '\WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Abstracts\UnionType' ) ) {
 
 	/**
 	 * Class - UnionType

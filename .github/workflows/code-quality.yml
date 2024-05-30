@@ -48,8 +48,8 @@ jobs:
         run: |
           cp .env.dist .env
           composer run install-stan-env
-          cp -R . /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
+          cp -R . /tmp/wordpress/wp-content/plugins/wp-graphql-fluent-forms
 
       - name: Run PHPStan
-        working-directory: /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
+        working-directory: /tmp/wordpress/wp-content/plugins/wp-graphql-fluent-forms
         run: composer run-script phpstan

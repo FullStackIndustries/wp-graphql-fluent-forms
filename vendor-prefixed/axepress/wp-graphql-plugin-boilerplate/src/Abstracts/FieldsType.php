@@ -10,13 +10,13 @@
 
 declare( strict_types=1 );
 
-namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts;
+namespace WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Abstracts;
 
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\GraphQLType;
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\TypeWithFields;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces\GraphQLType;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
+use WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Interfaces\TypeWithFields;
 
-if ( ! class_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts\FieldsType' ) ) {
+if ( ! class_exists( '\WPGraphQL\FluentForms\Vendor\AxeWP\GraphQL\Abstracts\FieldsType' ) ) {
 
 	/**
 	 * Class - FieldsType
